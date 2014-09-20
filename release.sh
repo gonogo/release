@@ -84,7 +84,7 @@ OUTPUT_FILESTEM="${OUTPUT_FILENAME%.*}"
 
 # Get the 
 osascript $DIR/close-graffle.scpt "${GRAFFLE_APP}" "$INPUT_PATH"
-node $DIR/update-graffle-version "$INPUT_PATH" "$NEW_VERSION"
+node $DIR/update-graffle-version.js "$INPUT_PATH" "$NEW_VERSION"
 #echo "INPUT_PATH = $INPUT_PATH" 
 #echo "OUTPUT_PATH = $OUTPUT_PATH"
 #echo "OUTPUT_FILESTEM = $OUTPUT_FILESTEM"
