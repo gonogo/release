@@ -61,11 +61,17 @@ else
     # a relative pathname.  We need to prepend $PWD to get an absolute
     # path.
     INPUT_PATH=$PWD/$INPUT_FILE
-	OUTPUT_PATH_STEM=/${INPUT_PATH%/*}
+	OUTPUT_PATH_STEM=${INPUT_PATH%/*}
 	OUTPUT_PATH="$OUTPUT_PATH_STEM/Releases/"
 fi
 
 DIR=`dirname $0`
+
+# Create the releases folder if it doesn't already exist.
+if [ ! -d "$OUTPUT_PATH" ]; then
+	echo "Releases directory not found. Creating new directory."
+	mkdir "$OUTPUT_PATH"
+fi
 
 #echo Format = $FORMAT
 #echo Input = $INPUT_PATH
@@ -79,9 +85,9 @@ OUTPUT_FILESTEM="${OUTPUT_FILENAME%.*}"
 # Get the 
 osascript $DIR/close-graffle.scpt "${GRAFFLE_APP}" "$INPUT_PATH"
 node $DIR/update-graffle-version "$INPUT_PATH" "$NEW_VERSION"
-echo "INPUT_PATH = $INPUT_PATH" 
-echo "OUTPUT_PATH = $OUTPUT_PATH"
-echo "OUTPUT_FILESTEM = $OUTPUT_FILESTEM"
-echo "OUTPUT_PATH_STEM = $OUTPUT_PATH_STEM"
+#echo "INPUT_PATH = $INPUT_PATH" 
+#echo "OUTPUT_PATH = $OUTPUT_PATH"
+#echo "OUTPUT_FILESTEM = $OUTPUT_FILESTEM"
+#echo "OUTPUT_PATH_STEM = $OUTPUT_PATH_STEM"
 osascript $DIR/export-graffle.scpt "${GRAFFLE_APP}" "$FORMAT" "$INPUT_PATH" "$OUTPUT_PATH""$OUTPUT_FILESTEM"-v"$NEW_VERSION"."$FORMAT"
 
