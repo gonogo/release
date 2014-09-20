@@ -21,3 +21,18 @@ The script does the following:
 * Check that the user isn't trying to do a release with a version number that is less than or equal to the most recently tagged commit.
 * If someone else has made a commit to the main repo more recently than the last time the user updated their repo, the whole release process is aborted. The user should be able to download the conflicting, newer version of the file (should be saved as [filename].[hash].graffle)so that they can do an eyeball diff on the two files and create a file that they can commit which reflects the changes in both documents.
 * Some kind of system for alerting users if they have opened a graffle file under version control which another user on their team already has open too. This is a nice-to-have, but ideally teams should co-ordinate to prevent this happening.
+
+# Installation
+
+This needs an installation script.
+
+* Make sure you have node installed - suggest using Homebrew to do this.
+* This will only work for Omnigraffle 5 and 6
+* git clone into /usr/local/
+* cd /usr/local/bin
+* ln -s ../release/update-graffle-version.js update-graffle-version.js
+* ln -s ../release/close-graffle.scpt close-graffle.scpt
+* ln -s ../release/export-graffle.scpt export-graffle.scpt
+* This package only works with FLAT OmniGraffle files. To always do this by default, run this: defaults write com.omnigroup.OmniGraffle PrivateGraffleFlatFile 0
+* In the Document Inspector in Omnigraffle, turn off 'Compress on disk'.
+* For each new document you work with, set Version to 0 in the Document Inspector Under 'Document Data'.
