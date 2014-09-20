@@ -3,7 +3,7 @@ release
 
 Command line utility for teams to manage versioned Omnigraffle files and build numbered releases and changelogs. 
 
-This utility is designed to help UXers manage formal version control when creating documents using Omnigraffle. The package assumes you use a separate repository for each deck of wireframes (a single graffle file) you wish to keep under version control.
+This utility is designed to help UXers manage formal version control when creating documents using Omnigraffle. The package assumes you use a separate repository for each deck of wireframes (a single graffle file) you wish to keep under version control. The export code is borrowed from Douglas Creager's super-handy graffle-export (https://github.com/dcreager/graffle-export).
 
 To release a document, run the release script specifying the graffle file and the version number.
 
