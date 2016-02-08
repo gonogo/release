@@ -3,7 +3,9 @@ release
 
 Command line utility for teams to manage versioned Omnigraffle files and build numbered releases and changelogs. 
 
-This utility is designed to help UXers manage formal version control when creating documents using Omnigraffle. The package assumes you use a separate repository for each deck of wireframes (a single graffle file) you wish to keep under version control. The export code is borrowed from Douglas Creager's super-handy graffle-export (https://github.com/dcreager/graffle-export).
+Think twice about using this tool! In most circumstances, you should be looking for ways to keep your documentation and minimal and as streamlined as possible. Massive wireframe decks need lots of maintenance, and that comes at a cost. I developed this tool for use specifically on very large, complex financial projects to manage wireframe revisions on trading platform designs. When working with big banks I've found it helpful to make sure there's an audit trail of every discussion about and every revision made to a document.  Keeping documentation watertight reassures clients like this, who know that small mistakes and omissions can incur considerable cost.
+
+This utility is is to help manage formal version control when creating documents using Omnigraffle. The package assumes you use a separate repository for each deck of wireframes (a single graffle file not a package) you wish to keep under version control. The export code is borrowed from Douglas Creager's super-handy graffle-export (https://github.com/dcreager/graffle-export).
 
 To release a document, run the release script specifying the graffle file and the version number.
 
@@ -21,10 +23,9 @@ The script does the following:
 * Check that the user isn't trying to do a release with a version number that is less than or equal to the most recently tagged commit.
 * If someone else has made a commit to the main repo more recently than the last time the user updated their repo, the whole release process is aborted. The user should be able to download the conflicting, newer version of the file (should be saved as [filename].[hash].graffle)so that they can do an eyeball diff on the two files and create a file that they can commit which reflects the changes in both documents.
 * Some kind of system for alerting users if they have opened a graffle file under version control which another user on their team already has open too. This is a nice-to-have, but ideally teams should co-ordinate to prevent this happening.
-
+* Include documentation for T&T's internal versioning system to illustrate how best to use this on a big project.
+* 
 # Installation
-
-This needs an installation script.
 
 * Make sure you have node installed - suggest using Homebrew to do this.
 * This will only work for Omnigraffle 5 and 6
